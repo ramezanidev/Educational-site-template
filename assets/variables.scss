@@ -46,7 +46,7 @@ html::-webkit-scrollbar{
     background-color:  $c_1;
   }
   
-.v-application a {
+.v-application a:not(.v-card__subtitle){
     color: unset !important;
 }
 a {

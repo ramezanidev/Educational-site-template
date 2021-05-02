@@ -21,21 +21,41 @@
 
       <v-row class="section-container mt-10">
         <v-col cols="12" md="8" class="single-main">
-          <v-img
-            src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
-            lazy-src="https://picsum.photos/id/11/100/60"
-            max-height="460"
-            class="mb-8 rounded-lg"
-          >
-            <template v-slot:placeholder>
-              <v-row class="fill-height ma-0" align="center" justify="center">
-                <v-progress-circular
-                  indeterminate
-                  color="grey lighten-5"
-                ></v-progress-circular>
-              </v-row>
-            </template>
-          </v-img>
+          <v-card class="mb-8">
+            <v-card-title
+              class="d-flex flex-column flex-md-row align-start justify-space-between pl-0 pl-md-16"
+            >
+              <div class="d-flex align-center my-1 my-md-0">
+                <v-icon color="c_1">{{ icon.CalendarMonthOutline }}</v-icon>
+                <span class="body-2 mt-1 mr-1">20/10/1399</span>
+              </div>
+              <div class="d-flex align-center my-1 my-md-0">
+                <v-icon color="c_1">{{ icon.AccountOutline }}</v-icon>
+                <span class="body-2 mt-1 mr-1"
+                  >ارسال شده توسط محمد حسین نصرتی</span
+                >
+              </div>
+              <div class="d-flex align-center my-1 my-md-0">
+                <v-icon color="c_1">{{ icon.FolderOpenOutline }}</v-icon>
+                <span class="body-2 mt-1 mr-1">رپورتاژ آگهی</span>
+              </div>
+            </v-card-title>
+            <v-img
+              src="https://cdn.vuetifyjs.com/images/parallax/material.jpg"
+              lazy-src="https://picsum.photos/id/11/100/60"
+              max-height="460"
+              class="rounded-lg"
+            >
+              <template v-slot:placeholder>
+                <v-row class="fill-height ma-0" align="center" justify="center">
+                  <v-progress-circular
+                    indeterminate
+                    color="grey lighten-5"
+                  ></v-progress-circular>
+                </v-row>
+              </template>
+            </v-img>
+          </v-card>
           <v-card class="single-main-content py-md-3 px-md-3 mb-8">
             <v-card-title>Regex چیست؟</v-card-title>
             <v-card-text>
@@ -219,6 +239,26 @@
               </v-card>
             </section>
           </v-card>
+          <v-card class="mb-8">
+            <div class="d-flex justify-space-between">
+              <v-btn text router to="/" class="pt-2 pb-1 py-2">
+                <v-icon>{{ icon.ArrowRight }}</v-icon>
+                <span>بعدی</span>
+              </v-btn>
+              <v-btn text router to="/" class="pt-2 pb-1 py-2">
+                <span>قبلی</span>
+                <v-icon>{{ icon.ArrowLeft }}</v-icon>
+              </v-btn>
+            </div>
+            <div class="d-flex justify-space-between">
+              <nuxt-link to="/" class="v-card__subtitle caption pt-1">
+                نکات کلیدی برای شروع برنامه نویسی
+              </nuxt-link>
+              <nuxt-link to="/" class="v-card__subtitle caption pt-1">
+                ایده های 2021 برای راه اندازی کسب و کار پول ساز
+              </nuxt-link>
+            </div>
+          </v-card>
           <v-card class="mb-8" id="comments">
             <v-card-text>
               <v-icon class="ml-2">{{ icon.ForumOutline }}</v-icon>
@@ -395,61 +435,9 @@
               <v-list-item v-for="i in 12" :key="i" router :to="`/posts/${i}`">
                 <v-list-item-content>
                   <v-list-item-title class="body-2 font-weight-light"
-                    >لورم ایپسوم متن ساختگی با
-                  </v-list-item-title>
+                    >لورم ایپسوم متن ساختگی با</v-list-item-title
+                  >
                 </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-card>
-          <v-card class="mb-8">
-            <v-card-title class="font-weight-medium">
-              <v-icon color="c_1" class="ml-1">{{
-                icon.ClockTimeFourOutline
-              }}</v-icon>
-              <span>نوشته های تازه</span>
-            </v-card-title>
-            <v-divider class="mx-3" />
-
-            <v-list dense class="recent-posts">
-              <v-list-item v-for="i in 15" :key="i" router :to="`/posts/${i}`">
-                <v-list-item-content>
-                  <v-list-item-title class="body-2 font-weight-light">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،و
-                  </v-list-item-title>
-                </v-list-item-content>
-              </v-list-item>
-            </v-list>
-          </v-card>
-          <v-card class="mb-8">
-            <v-card-title class="font-weight-medium">
-              <v-icon color="c_1" class="ml-1">{{
-                icon.ClockTimeFourOutline
-              }}</v-icon>
-              <span>نوشته های تازه</span>
-            </v-card-title>
-            <v-divider class="mx-3" />
-
-            <v-list dense class="recent-course">
-              <v-list-item
-                class="my-3"
-                v-for="i in 15"
-                :key="i"
-                router
-                :to="`/posts/${i}`"
-              >
-                <div class="d-flex">
-                  <v-img
-                    height="70"
-                    max-width="100"
-                    class="rounded"
-                    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
-                  ></v-img>
-                  <div class="pr-2 py-1">
-                    <v-list-item-title class="body-1 white-space-normal font-weight-light">آموزش جاوااسکریپت</v-list-item-title>
-                    <v-list-item-subtitle class="white-space-normal caption mt-2">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت 
-                    </v-list-item-subtitle>
-                  </div>
-                </div>
               </v-list-item>
             </v-list>
           </v-card>
@@ -501,6 +489,65 @@
             <v-btn block class="py-10" @click="showShareBox = !showShareBox">
               <v-icon large color="#FFF">{{ icon.ShareVariant }}</v-icon>
             </v-btn>
+          </v-card>
+
+          <v-card class="mb-8">
+            <v-card-title class="font-weight-medium">
+              <v-icon color="c_1" class="ml-1">{{
+                icon.ClockTimeFourOutline
+              }}</v-icon>
+              <span>نوشته های تازه</span>
+            </v-card-title>
+            <v-divider class="mx-3" />
+
+            <v-list dense class="recent-posts">
+              <v-list-item v-for="i in 15" :key="i" router :to="`/posts/${i}`">
+                <v-list-item-content>
+                  <v-list-item-title class="body-2 font-weight-light"
+                    >لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ،و
+                  </v-list-item-title>
+                </v-list-item-content>
+              </v-list-item>
+            </v-list>
+          </v-card>
+          <v-card class="mb-8">
+            <v-card-title class="font-weight-medium">
+              <v-icon color="c_1" class="ml-1">{{
+                icon.ClockTimeFourOutline
+              }}</v-icon>
+              <span>نوشته های تازه</span>
+            </v-card-title>
+            <v-divider class="mx-3" />
+
+            <v-list dense class="recent-course">
+              <v-list-item
+                class="my-3"
+                v-for="i in 15"
+                :key="i"
+                router
+                :to="`/posts/${i}`"
+              >
+                <div class="d-flex">
+                  <v-img
+                    height="70"
+                    max-width="100"
+                    class="rounded"
+                    src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
+                  ></v-img>
+                  <div class="pr-2 py-1">
+                    <v-list-item-title
+                      class="body-1 white-space-normal font-weight-light"
+                      >آموزش جاوااسکریپت</v-list-item-title
+                    >
+                    <v-list-item-subtitle
+                      class="white-space-normal caption mt-2"
+                    >
+                      لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت
+                    </v-list-item-subtitle>
+                  </div>
+                </div>
+              </v-list-item>
+            </v-list>
           </v-card>
 
           <v-card class="sidebar-widgets-wrapper mb-8">
@@ -572,6 +619,11 @@ import {
   mdiInformationVariant,
   mdiShapeOutline,
   mdiClockTimeFourOutline,
+  mdiCalendarMonthOutline,
+  mdiFolderOpenOutline,
+  mdiAccountOutline,
+  mdiArrowLeft,
+  mdiArrowRight,
 } from "@mdi/js";
 const icon = {
   ChevronLeft: mdiChevronLeft,
@@ -607,6 +659,11 @@ const icon = {
   InformationVariant: mdiInformationVariant,
   ShapeOutline: mdiShapeOutline,
   ClockTimeFourOutline: mdiClockTimeFourOutline,
+  CalendarMonthOutline: mdiCalendarMonthOutline,
+  FolderOpenOutline: mdiFolderOpenOutline,
+  AccountOutline: mdiAccountOutline,
+  ArrowLeft: mdiArrowLeft,
+  ArrowRight: mdiArrowRight,
 };
 export default {
   data: () => ({
@@ -800,8 +857,8 @@ export default {
     border-bottom: 1px solid #80808057;
   }
 }
-.white-space-normal{
-    white-space: normal !important;
+.white-space-normal {
+  white-space: normal !important;
 }
 .sccommentnumber {
   span {
