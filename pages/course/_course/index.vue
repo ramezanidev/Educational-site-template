@@ -286,7 +286,7 @@
                   <v-progress-linear
                     color="green accent-4"
                     height="10"
-                    value="60"
+                    :value="60"
                     striped
                     class="rounded-lg"
                   ></v-progress-linear>
@@ -297,7 +297,7 @@
                   <v-progress-linear
                     color="green darken-1"
                     height="10"
-                    value="60"
+                    :value="60"
                     striped
                     class="rounded-lg"
                   ></v-progress-linear>
@@ -308,7 +308,7 @@
                   <v-progress-linear
                     color="lime lighten-1"
                     height="10"
-                    value="60"
+                    :value="60"
                     striped
                     class="rounded-lg"
                   ></v-progress-linear>
@@ -319,7 +319,7 @@
                   <v-progress-linear
                     color="orange darken-4"
                     height="10"
-                    value="60"
+                    :value="60"
                     striped
                     class="rounded-lg"
                   ></v-progress-linear>
@@ -330,7 +330,7 @@
                   <v-progress-linear
                     color="deep-orange accent-3"
                     height="10"
-                    value="60"
+                    :value="60"
                     striped
                     class="rounded-lg"
                   ></v-progress-linear>
@@ -755,6 +755,7 @@ export default {
       },
     },
   }),
+  middleware: 'test',
   head() {
     return {
       title: this.$route.params.course,

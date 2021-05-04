@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="comment-container" v-for="comment in comments" :key="comment.user">
+    <div class="comment-container" v-for="(comment, index) in comments" :key="`${comment.user} ${index}`">
       <div class="comment">
         <div class="profile">
           <v-img
@@ -13,7 +13,7 @@
         <div class="comment-body py-2 px-2 py-md-4 px-md-4">
           <span>{{ comment.user }}</span>
           <v-rating
-            :value="comment.rating"
+            :value="+comment.rating"
             color="#ffe700"
             background-color="warning lighten-1"
             dense
@@ -28,13 +28,11 @@
           <span class="body-2">{{ comment.text }}</span>
           <div class="comment-bottem">
             <span class="caption">{{ comment.date }}</span>
-            <v-btn :text="isDark" small>پاسخ <v-icon color="c_1" small>{{ icon.Reply }}</v-icon></v-btn>
+            <v-btn small>پاسخ <v-icon color="c_1" small>{{ icon.Reply }}</v-icon></v-btn>
           </div>
         </div>
       </div>
-    
       <Comments v-if="comment.replys" :comment="comment.replys"/>
-
     </div>
   </div>
 </template>

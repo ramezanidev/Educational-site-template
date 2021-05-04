@@ -1,13 +1,10 @@
 <template>
   <v-app>
-    <h1>549</h1>
-    <v-app>
-      <Header />
-      <transition @enter="scrollTop" name="fade" mode="in-out">
-        <Nuxt />
-      </transition>
-      <Footer />
-    </v-app>
+    <Header />
+    <transition @enter="scrollTop" name="fade" mode="in-out">
+      <Nuxt />
+    </transition>
+    <Footer />
   </v-app>
 </template>
 
