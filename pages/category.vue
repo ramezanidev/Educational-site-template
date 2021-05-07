@@ -19,9 +19,6 @@
       </div>
 
       <v-row class="section-container mt-10">
-        <v-col cols="12" md="8" class="single-main">
-          <nuxt-child />
-        </v-col>
         <v-col cols="12" md="4" class="aside-main">
           <v-card class="mb-8">
             <v-card-title class="font-weight-medium">
@@ -130,6 +127,9 @@
               </v-list-item>
             </v-list>
           </v-card>
+        </v-col>
+        <v-col cols="12" md="8" class="single-main">
+          <nuxt-child />
         </v-col>
       </v-row>
       <v-snackbar v-model="snackbar.status">
@@ -240,7 +240,16 @@ export default {
   cursor: pointer;
   user-select: none;
 }
-
+.white-space-normal {
+  white-space: normal !important;
+}
+.recent-posts {
+  .v-list-item__title {
+    word-break: break-word !important;
+    white-space: break-spaces !important;
+    line-height: 19px !important;
+  }
+}
 .category-list {
   .nuxt-link-active{
   .v-timeline-item{

@@ -49,6 +49,8 @@ import {
     mdiBrightness6,
     mdiWeatherNight,
     mdiMagnify,
+    mdiMenuDown ,
+    mdiViewGrid ,
 } from "@mdi/js";
 
 
@@ -105,6 +107,8 @@ export default {
     AccountOutline: mdiAccountOutline,
     ArrowLeft: mdiArrowLeft,
     ArrowRight: mdiArrowRight,
+    MenuDown : mdiMenuDown ,
+    ViewGrid  : mdiViewGrid  ,
 }
 
 

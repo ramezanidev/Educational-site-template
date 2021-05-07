@@ -5,6 +5,8 @@
         <div>
           <p class="headline sectionTitle">دوره های آموزشی</p>
           <v-divider></v-divider>
+
+          <h1>{{ testVuex }}</h1>
         </div>
         <section
           style="display: flex; flex-wrap: wrap; justify-content: center"
@@ -102,7 +104,8 @@
 
 
 <script>
-import icon from 'assets/icon'
+import icon from "assets/icon";
+
 export default {
   data: () => ({
     icon: icon,
@@ -112,33 +115,9 @@ export default {
       return this.$vuetify.theme.dark;
     },
   },
-
-  methods: {},
 };
 </script>
 <style lang="scss">
-.v-slide-group__next {
-  height: 70px;
-  border-radius: 0 99px 99px 0;
-  background-color: aqua;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  transform: translate(0, -50%);
-  min-width: 45px;
-  left: 0;
-}
-.v-slide-group__prev {
-  height: 70px;
-  border-radius: 99px 0 0 99px;
-  background-color: aqua;
-  position: absolute;
-  z-index: 1;
-  top: 50%;
-  transform: translate(0, -50%);
-  min-width: 45px;
-  right: 0;
-}
 .sectionTitle {
   margin: 0 10px 25px;
   position: relative;

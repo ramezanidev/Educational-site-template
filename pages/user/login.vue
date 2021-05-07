@@ -129,18 +129,10 @@ export default {
   },
 
   methods: {
-    async submit() {
+    submit() {
+      this.loading = false;
       if (this.$refs.loginForm.validate() && this.valid) {
-        this.loading = true;
-        try {
-          let response = await this.$auth.loginWith("local", {
-            data: this.user,
-          });
-          console.log(response);
-          this.loading = false;
-        } catch (err) {
-          console.log(err);
-        }
+        
       }
     },
   },
