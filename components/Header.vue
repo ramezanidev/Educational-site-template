@@ -1,5 +1,5 @@
 <template>
-  <nav :class="{ lightTheme: !isDark }">
+  <div :class="{ lightTheme: !isDark }">
     <v-navigation-drawer
       v-if="$vuetify.breakpoint.smAndDown"
       v-model="drawer"
@@ -279,37 +279,11 @@
       @closed="isActiveOrderCard = false"
     />
     <Snackbars :options="Snackbars" />
-  </nav>
+  </div>
 </template>
 
 <script>
-import {
-  mdiTelegram,
-  mdiMenu,
-  mdiAccount,
-  mdiBasket,
-  mdiClipboardCheck,
-  mdiLoginVariant,
-  mdiBrightness6,
-  mdiWeatherNight,
-  mdiMagnify,
-  mdiChevronDown,
-  mdiSchoolOutline,
-} from "@mdi/js";
-
-const icon = {
-  Account: mdiAccount,
-  ClipboardCheck: mdiClipboardCheck,
-  LoginVariant: mdiLoginVariant,
-  Brightness6: mdiBrightness6,
-  WeatherNight: mdiWeatherNight,
-  Magnify: mdiMagnify,
-  ChevronDown: mdiChevronDown,
-  SchoolOutline: mdiSchoolOutline,
-  Basket: mdiBasket,
-  Menu: mdiMenu,
-  Telegram: mdiTelegram,
-};
+import icon from 'assets/icon'
 
 export default {
   computed: {

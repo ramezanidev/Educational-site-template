@@ -122,12 +122,7 @@
 </template>
 
 <script>
-import { mdiCalendarClock } from '@mdi/js'
-
-const icon = {
-  CalendarClock:mdiCalendarClock
-};
-
+import icon from 'assets/icon'
 export default {
   computed: {
     isDark() {

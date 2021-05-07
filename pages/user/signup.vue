@@ -91,16 +91,7 @@
   </v-main>
 </template>
 <script>
-import { mdiEyeOff , mdiClose, mdiEye, mdiCheckboxBlankOutline, mdiCheckboxMarked } from '@mdi/js'
-
-
-const icon = {
-  Close: mdiClose,
-  CheckboxOff:mdiCheckboxBlankOutline,
-  CheckboxOn:mdiCheckboxMarked,
-  Eye:mdiEye,
-  EyeOff:mdiEyeOff
-};
+import icon from 'assets/icon'
 export default {
   data: () => ({
     icon:icon,

@@ -102,19 +102,7 @@
 
 
 <script>
-import {
-  mdiAccountMultiple,
-  mdiStarOutline,
-  mdiStarHalfFull,
-  mdiStar,
-} from "@mdi/js";
-
-const icon = {
-  AccountMultiple: mdiAccountMultiple,
-  StarOutline: mdiStarOutline,
-  StarHalfFull: mdiStarHalfFull,
-  Star: mdiStar,
-};
+import icon from 'assets/icon'
 export default {
   data: () => ({
     icon: icon,

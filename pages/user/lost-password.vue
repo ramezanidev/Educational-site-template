@@ -83,12 +83,7 @@
   </v-main>
 </template>
 <script>
-import { mdiClose, mdiInformationVariant  } from '@mdi/js'
-
-const icon = {
-  Close:mdiClose,
-  InformationVariant:mdiInformationVariant
-};
+import icon from 'assets/icon'
 export default {
   validate: function (){
       return 1

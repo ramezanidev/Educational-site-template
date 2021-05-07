@@ -46,7 +46,7 @@ export default {
   ],
 
   axios: {
-    baseURL: 'http://192.168.1.102:8085', // Used as fallback if no runtime config is provided
+    baseURL: 'http://192.168.1.101:8085', // Used as fallback if no runtime config is provided
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
@@ -67,6 +67,10 @@ export default {
     }
   },
 
+  extend (config, ctx) {
+    config.resolve.symlinks = false
+  },
+
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {
     analyze: true,
@@ -74,7 +78,7 @@ export default {
   },
 
   server: {
-    host: '192.168.1.102',
+    host: '192.168.1.101',
     port: 8082
   },
 

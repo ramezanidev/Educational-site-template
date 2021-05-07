@@ -37,32 +37,10 @@
   </div>
 </template>
 
-<script>import {
-  mdiChevronLeft,
-  mdiSchoolOutline,
-  mdiChevronDown,
-  mdiCloudDownloadOutline,
-  mdiFolderZipOutline,
-  mdiStarOutline,
-  mdiStar,
-  mdiStarHalfFull,
-  mdiAccountMultiple,
-  mdiForumOutline,
-  mdiReply,
-} from "@mdi/js";
-const icon = {
-  ChevronLeft: mdiChevronLeft,
-  ChevronDown: mdiChevronDown,
-  SchoolOutline: mdiSchoolOutline,
-  CloudDownloadOutline: mdiCloudDownloadOutline,
-  FolderZipOutline: mdiFolderZipOutline,
-  StarOutline: mdiStarOutline,
-  Star: mdiStar,
-  StarHalfFull: mdiStarHalfFull,
-  AccountMultiple: mdiAccountMultiple,
-  ForumOutline: mdiForumOutline,
-  Reply: mdiReply,
-};
+<script>
+import icon from 'assets/icon'
+
+
 export default {
   props:["comment"],
   data:()=>({
