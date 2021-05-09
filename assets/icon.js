@@ -51,6 +51,7 @@ import {
     mdiMagnify,
     mdiMenuDown ,
     mdiViewGrid ,
+    mdiChevronRight
 } from "@mdi/js";
 
 
@@ -67,6 +68,7 @@ export default {
     StarOutline: mdiStarOutline,
     Star: mdiStar,
     ChevronLeft: mdiChevronLeft,
+    ChevronRight:mdiChevronRight,
     ChevronDown: mdiChevronDown,
     SchoolOutline: mdiSchoolOutline,
     CloudDownloadOutline: mdiCloudDownloadOutline,

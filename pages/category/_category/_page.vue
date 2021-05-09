@@ -35,6 +35,7 @@
       <v-spacer />
       <v-responsive max-width="240" v-if="$vuetify.breakpoint.mdAndUp">
         <v-text-field
+          v-model="message4"
           @click:append="show1 = !show1"
           autocomplete="off"
           autocapitalize="off"
@@ -69,8 +70,8 @@
         style="display: flex; flex-wrap: wrap; justify-content: center"
         class="my-n2 mx-n2"
       >
-        <template v-for="post in posts">
-          <v-hover v-slot="{ hover }" :key="post.id" style="transition: 200ms">
+        <template v-for="i in 6">
+          <v-hover v-slot="{ hover }" :key="i" style="transition: 200ms">
             <v-card
               class="mx-2 my-4 overflow-hidden"
               :max-width="arrangementItems ? '100%' : '31%'"
@@ -116,7 +117,7 @@
                   class="p-0 pr-5 pt-3 pb-1"
                   v-if="!arrangementItems"
                   :style="{ color: isDark ? '#ddd' : '#000' }"
-                  >{{ post.title }}</v-card-title
+                  >آموزش جاوااسکریپت</v-card-title
                 >
               </nuxt-link>
 
@@ -125,7 +126,7 @@
                   <v-card-title
                     class="p-0 pr-5 pt-3 pb-1"
                     :style="{ color: isDark ? '#ddd' : '#000' }"
-                    >{{ post.title }}</v-card-title
+                    >آموزش جاوااسکریپت</v-card-title
                   >
                 </nuxt-link>
                 <v-spacer />
@@ -133,7 +134,7 @@
                 <v-card-text class="body-2">
                   <v-row align="center" no-gutters class="mx-0 mb-1">
                     <v-rating
-                      :value="Number(post.rating.reng)"
+                      :value="3.5"
                       color="#ffe700"
                       background-color="warning lighten-1"
                       dense
@@ -144,9 +145,11 @@
                       :full-icon="icon.Star"
                       :half-icon="icon.StarHalfFull"
                     ></v-rating>
-                    <div class="grey--text">{{post.rating.reng}} ({{post.rating.total}})</div>
+                    <div class="grey--text">3.5 (413)</div>
                   </v-row>
-                        {{ post.description }}
+                  لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و
+                  با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و
+                  مجله
                 </v-card-text>
 
                 <v-divider class="mx-4"></v-divider>
@@ -156,7 +159,7 @@
                     <template v-slot:activator="{ on, attrs }">
                       <div class="ml-2" v-bind="attrs" v-on="on">
                         <v-icon color="c_1">{{ icon.AccountMultiple }}</v-icon>
-                        <span class="body-2">{{ post.member }}</span>
+                        <span class="body-2">45</span>
                       </div>
                     </template>
                     <span class="caption">تعداد شرکت کنندگان</span>
@@ -165,7 +168,7 @@
                   <v-tooltip top color="c_1">
                     <template v-slot:activator="{ on, attrs }">
                       <div class="ml-2" v-bind="attrs" v-on="on">
-                        <span class="caption">{{ post.time }}</span>
+                        <span class="caption">25:11:17</span>
                         <v-icon color="c_1">{{
                           icon.ClockTimeFourOutline
                         }}</v-icon>
@@ -183,8 +186,7 @@
     <div class="d-flex">
       <v-responsive
         class="mx-auto"
-        :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '100%'"
-      >
+        :max-width="$vuetify.breakpoint.mdAndUp ? '500' : '100%'">
         <v-pagination
           v-model="pagination"
           class="my-4"
@@ -315,35 +317,17 @@
 
 <script>
 import icon from "assets/icon";
-import getContent from "assets/getContent";
 export default {
   data: () => ({
     icon: icon,
     True: true,
+    pagination:5,
     arrangementItems: 0,
     showShareBox: false,
   }),
-  watch: {
-    pagination() {},
-  },
-  computed: {
-    pagination: {
-      set(newValue) {
-        this.$router.push(
-          `/category/${this.$route.params.category}/${newValue}`
-        );
-      },
-      get() {
-        return Number.parseInt(this.$route.params.page || 1);
-      },
-    },
-    isDark() {
-      return this.$vuetify.theme.dark;
-    },
-  },
   head() {
     return {
-      title: this.$route.params.category,
+      title: this.$route.params.course,
     };
   },
   methods: {
@@ -360,10 +344,23 @@ export default {
       };
     },
   },
-  async asyncData({ $axios, error, params }) {
-    const data = await getContent($axios, error, params.page);
-    return{
-        ...data
+  computed: {
+    isDark() {
+      return this.$vuetify.theme.dark;
+    },
+  },
+  async asyncData({ $axios, error }) {
+    try {
+      let { data } = await $axios.get("/learning");
+      return {
+        items: data.items,
+        comments: data.comments,
+      };
+    } catch (e) {
+      error({
+        statusCode: 503,
+        message: "reza",
+      });
     }
   },
 };
