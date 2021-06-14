@@ -5,8 +5,6 @@
         <div>
           <p class="headline sectionTitle">دوره های آموزشی</p>
           <v-divider></v-divider>
-
-          <h1>{{ testVuex }}</h1>
         </div>
         <section
           style="display: flex; flex-wrap: wrap; justify-content: center"

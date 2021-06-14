@@ -322,6 +322,57 @@ export default {
     True: true,
     arrangementItems: 0,
     showShareBox: false,
+      "posts":[
+    {
+      "cover":{
+        "lazy": "/1.jpg",
+        "src": "/2.jpg"
+      },
+      "title": "آموزش جاوااسکریپت",
+      "rating": {
+        "reng": "3",
+        "total": "1058"
+      },
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله",
+      "time": "40:04",
+      "member": "201"
+    },
+
+
+    {
+      "cover":{
+        "lazy": "/1.jpg",
+        "src": "/2.jpg"
+      },
+      "title": "آموزش جاوااسکریپت",
+      "rating": {
+        "reng": "3",
+        "total": "1058"
+      },
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله",
+      "time": "40:04",
+      "member": "201"
+    },
+
+
+    {
+      "cover":{
+        "lazy": "/1.jpg",
+        "src": "/2.jpg"
+      },
+      "title": "آموزش جاوااسکریپت",
+      "rating": {
+        "reng": "3",
+        "total": "1058"
+      },
+      "description": "لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ، و با استفاده از طراحان گرافیک است، چاپگرها و متون بلکه روزنامه و مجله",
+      "time": "40:04",
+      "member": "201"
+    }
+
+    
+
+  ],
   }),
   watch: {
     pagination() {},
@@ -360,12 +411,7 @@ export default {
       };
     },
   },
-  async asyncData({ $axios, error, params }) {
-    const data = await getContent($axios, error, params.page);
-    return{
-        ...data
-    }
-  },
+
 };
 </script>
 

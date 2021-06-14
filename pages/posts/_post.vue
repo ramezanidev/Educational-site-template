@@ -478,6 +478,80 @@ export default {
   data: () => ({
     icon: icon,
     True: true,
+        comments: [
+      {
+        "user": "رضا رمضانی",
+        "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+        "rating": "2",
+        "date": "1400/03/15 - 09:16",
+        "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه",
+        "replys": [
+          {
+            "user": "علی",
+            "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+            "rating": "2",
+            "date": "1400/03/15 - 09:16",
+            "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه",
+            "replys": [
+              {
+                "user": "علی",
+                "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+                "rating": "2",
+                "date": "1400/03/15 - 09:16",
+                "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه",
+                "replys": [
+                  {
+                    "user": "علی",
+                    "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+                    "rating": "2",
+                    "date": "1400/03/15 - 09:16",
+                    "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه"
+                  }
+                ]
+              }
+            ]
+          },
+          {
+            "user": "مهدی",
+            "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+            "rating": "2",
+            "date": "1400/03/15 - 09:16",
+            "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه"
+          }
+        ]
+      },
+      {
+        "user": "مهرداد",
+        "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+        "rating": "2",
+        "date": "1400/03/15 - 09:16",
+        "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه"
+      },
+      {
+        "user": "مهرداد",
+        "profile": "https://cdn.vuetifyjs.com/images/parallax/material.jpg",
+        "rating": "2",
+        "date": "1400/03/15 - 09:16",
+        "text": "بصورت قطعی نمیشه گفت تو چند قسمت تموم میشه، اگه بخوایم بطور تقریبی بگیم تقریبا تو 20 قسمت تموم میشه"
+      }
+    ],
+    items: [
+      {
+        "text": "صفحه اصلی",
+        "disabled": false,
+        "href": "/"
+      },
+      {
+        "text": "دوره های آموزشی",
+        "disabled": false,
+        "href": "/course"
+      },
+      {
+        "text": "آموزش regex در جاوا اسکریپت و php",
+        "disabled": true,
+        "href": "breadcrumbs_link_2"
+      }
+    ],
     showShareBox: false,
     snackbar: {
       text: "",
@@ -539,20 +613,20 @@ export default {
       return this.$vuetify.theme.dark;
     },
   },
-  async asyncData({ $axios, error }) {
-    try {
-      let { data } = await $axios.get("/learning");
-      return {
-        items: data.items,
-        comments: data.comments,
-      };
-    } catch (e) {
-      error({
-        statusCode: 503,
-        message: "reza",
-      });
-    }
-  },
+  // async asyncData({ $axios, error }) {
+  //   try {
+  //     let { data } = await $axios.get("/learning");
+  //     return {
+  //       items: data.items,
+  //       comments: data.comments,
+  //     };
+  //   } catch (e) {
+  //     error({
+  //       statusCode: 503,
+  //       message: "reza",
+  //     });
+  //   }
+  // },
 };
 </script>
 
