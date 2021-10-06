@@ -1,7 +1,7 @@
 # vuetfy
 
 ## Build Setup
-
+Demo: [Educational-site-template.vercel.app](https://educational-site-template.vercel.app/)
 ```bash
 # install dependencies
 $ npm install
