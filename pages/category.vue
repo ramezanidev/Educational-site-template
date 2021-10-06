@@ -33,7 +33,7 @@
                   color="rgb(117 117 117)"
                   class="py-2 pointer"
                   small
-                  >timelissne item</v-timeline-item>
+                  >جاوااسکریپت</v-timeline-item>
               </nuxt-link>
             </v-timeline>
           </v-card>
@@ -256,27 +256,20 @@ export default {
       },
     },
   }),
-  middleware: "test",
   head() {
     return {
       title: this.$route.params.course,
     };
   },
   methods: {
-    test() {
-      alert(2);
-    },
     copyPageLink() {
-      let inputDump = document.createElement("input");
-      document.body.appendChild(inputDump);
-      inputDump.value = window.location.href;
-      inputDump.select();
-      document.execCommand("copy");
-      document.body.removeChild(inputDump);
-      this.snackbar = {
-        status: true,
-        text: "لینک کپی شد!",
-      };
+      navigator.clipboard.writeText(window.location.href).then(
+        () =>
+          (this.snackbar = {
+            status: true,
+            text: "لینک کپی شد!",
+          })
+      );
     },
     newCommentSubmit() {
       if (this.newComment.form && this.$refs.newComment.validate()) {
@@ -291,21 +284,7 @@ export default {
     isDark() {
       return this.$vuetify.theme.dark;
     },
-  },
-  // async asyncData({ $axios, error }) {
-  //   try {
-  //     let { data } = await $axios.get("/learning");
-  //     return {
-  //       items: data.items,
-  //       comments: data.comments,
-  //     };
-  //   } catch (e) {
-  //     error({
-  //       statusCode: 503,
-  //       message: "reza",
-  //     });
-  //   }
-  // },
+  }
 };
 </script>
 

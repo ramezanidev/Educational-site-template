@@ -1,17 +1,7 @@
-<template>
-  <v-main>
-    <center>
-        <h1>POST PAGE</h1>
-    </center>
-  </v-main>
-</template>
-
 <script>
 export default {
-
+  middleware({redirect}){
+    redirect("/")
+  }
 }
 </script>
-
-<style>
-
-</style>

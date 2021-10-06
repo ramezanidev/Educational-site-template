@@ -33,21 +33,14 @@ export default {
 
   // Modules for dev and build (recommended): https://go.nuxtjs.dev/config-modules
   buildModules: [
-    // https://go.nuxtjs.dev/typescript
-    '@nuxt/typescript-build',
     // https://go.nuxtjs.dev/vuetify
     '@nuxtjs/vuetify',
   ],
 
   // Modules: https://go.nuxtjs.dev/config-modules
   modules: [
-    '@nuxtjs/axios',
-    '@nuxtjs/auth-next'
   ],
 
-  axios: {
-    baseURL: 'http://192.168.1.101:8085', // Used as fallback if no runtime config is provided
-  },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
@@ -76,26 +69,4 @@ export default {
     analyze: true,
     extractCSS: true
   },
-
-  auth: {
-    strategies: {
-      local: {
-      token: {
-        property: 'token',
-        // required: true,
-        // type: 'Bearer'
-      },
-      user: {
-        property: 'user',
-        // autoFetch: true
-      },
-        endpoints: {
-          login: { url: '/sessions', method: 'post', propertyName: 'token' },
-          logout: { url: '/api/auth/logout', method: 'post' },
-          user: { url: '/api/auth/user', method: 'get' }
-        },
-      }
-    }
-  }
-
 }

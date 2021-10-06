@@ -202,7 +202,6 @@
             :color="isDark ? 'c_1' : '#fff'"
           >
             <v-btn
-              @click="openCart"
               icon
               fab
               v-bind="attrs"
@@ -228,30 +227,15 @@
           <v-btn
             :color="isDark ? 'c_1' : '#fff'"
             class="mr-2"
-            elevation="0"
-            v-bind="attrs"
-            v-on="on"
-            v-if="$auth.loggedIn"
-            router
-            to="/account"
-          >
-            <v-icon>{{ icon.Account }}</v-icon>
-            <span>پروفایل</span>
-          </v-btn>
-
-          <v-btn
-            :color="isDark ? 'c_1' : '#fff'"
-            class="mr-2"
             icon
             elevation="0"
             v-bind="attrs"
             v-on="on"
-            v-if="!$auth.loggedIn"
           >
             <v-icon>{{ icon.Account }}</v-icon>
           </v-btn>
         </template>
-        <v-list width="180" v-if="!$auth.loggedIn">
+        <v-list width="180">
           <v-list-item-group>
             <nuxt-link to="/user/login">
               <v-list-item>
@@ -274,11 +258,6 @@
         </v-list>
       </v-menu>
     </v-app-bar>
-    <OrderCard
-      :option="isActiveOrderCard"
-      @closed="isActiveOrderCard = false"
-    />
-    <Snackbars :options="Snackbars" />
   </div>
 </template>
 
@@ -289,10 +268,7 @@ export default {
   computed: {
     isDark() {
       return this.$vuetify.theme.dark;
-    },
-    hasLogin() {
-      return this.$auth.loggedIn;
-    },
+    }
   },
   data: () => ({
     icon: icon,
@@ -301,7 +277,6 @@ export default {
     active: null,
     orders: 2,
     isActiveOrderCard: false,
-    Snackbars: {},
     searchText: "",
     nav: {
       socialNetwork: [
@@ -401,17 +376,7 @@ export default {
     changeTheme() {
       this.$vuetify.theme.dark = !this.$vuetify.theme.dark;
       localStorage.darkTheme = this.$vuetify.theme.dark ? true : "";
-    },
-    openCart() {
-      if (this.orders === 0) {
-        this.Snackbars = {
-          text: "سبد خرید شما خالی هست!",
-          delay: 3000,
-        };
-      } else if (this.orders > 0) {
-        this.isActiveOrderCard = true;
-      }
-    },
+    }
   },
   mounted() {
     if (localStorage.darkTheme) {

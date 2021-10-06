@@ -315,14 +315,11 @@
 
 <script>
 import icon from "assets/icon";
-import getContent from "assets/getContent";
 export default {
   data: () => ({
-    icon: icon,
-    True: true,
+    icon,
     arrangementItems: 0,
-    showShareBox: false,
-      "posts":[
+    posts:[
     {
       "cover":{
         "lazy": "/1.jpg",
@@ -337,8 +334,6 @@ export default {
       "time": "40:04",
       "member": "201"
     },
-
-
     {
       "cover":{
         "lazy": "/1.jpg",
@@ -353,8 +348,6 @@ export default {
       "time": "40:04",
       "member": "201"
     },
-
-
     {
       "cover":{
         "lazy": "/1.jpg",
@@ -369,14 +362,8 @@ export default {
       "time": "40:04",
       "member": "201"
     }
-
-    
-
   ],
   }),
-  watch: {
-    pagination() {},
-  },
   computed: {
     pagination: {
       set(newValue) {
@@ -396,22 +383,7 @@ export default {
     return {
       title: this.$route.params.category,
     };
-  },
-  methods: {
-    copyPageLink() {
-      let inputDump = document.createElement("input");
-      document.body.appendChild(inputDump);
-      inputDump.value = window.location.href;
-      inputDump.select();
-      document.execCommand("copy");
-      document.body.removeChild(inputDump);
-      this.snackbar = {
-        status: true,
-        text: "لینک کپی شد!",
-      };
-    },
-  },
-
+  }
 };
 </script>
 

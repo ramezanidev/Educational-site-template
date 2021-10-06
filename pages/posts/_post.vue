@@ -476,8 +476,7 @@
 import icon from 'assets/icon'
 export default {
   data: () => ({
-    icon: icon,
-    True: true,
+    icon,
         comments: [
       {
         "user": "رضا رمضانی",
@@ -584,20 +583,14 @@ export default {
     };
   },
   methods: {
-    test() {
-      alert(2);
-    },
     copyPageLink() {
-      let inputDump = document.createElement("input");
-      document.body.appendChild(inputDump);
-      inputDump.value = window.location.href;
-      inputDump.select();
-      document.execCommand("copy");
-      document.body.removeChild(inputDump);
-      this.snackbar = {
-        status: true,
-        text: "لینک کپی شد!",
-      };
+      navigator.clipboard.writeText(window.location.href).then(
+        () =>
+          (this.snackbar = {
+            status: true,
+            text: "لینک کپی شد!",
+          })
+      );
     },
     newCommentSubmit() {
       if (this.newComment.form && this.$refs.newComment.validate()) {
@@ -613,20 +606,6 @@ export default {
       return this.$vuetify.theme.dark;
     },
   },
-  // async asyncData({ $axios, error }) {
-  //   try {
-  //     let { data } = await $axios.get("/learning");
-  //     return {
-  //       items: data.items,
-  //       comments: data.comments,
-  //     };
-  //   } catch (e) {
-  //     error({
-  //       statusCode: 503,
-  //       message: "reza",
-  //     });
-  //   }
-  // },
 };
 </script>
 

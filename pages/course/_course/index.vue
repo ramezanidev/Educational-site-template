@@ -143,6 +143,8 @@
                 <v-row no-gutters>
                   <v-col cols="12" sm="4" class="flex-grow-0">
                     <v-img
+                                        class="rounded"
+
                       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                     ></v-img>
                   </v-col>
@@ -200,6 +202,7 @@
                 <v-row no-gutters>
                   <v-col cols="12" sm="4" class="flex-grow-0">
                     <v-img
+                    class="rounded"
                       src="https://cdn.vuetifyjs.com/images/cards/cooking.png"
                     ></v-img>
                   </v-col>
@@ -662,7 +665,7 @@
 import icon from 'assets/icon'
 export default {
   data: () => ({
-    icon: icon,
+    icon,
     True: true,
         comments: [
       {
@@ -764,31 +767,23 @@ export default {
       },
     },
   }),
-  middleware: 'test',
   head() {
     return {
       title: this.$route.params.course,
     };
   },
   methods: {
-    test() {
-      alert(2);
-    },
     copyPageLink() {
-      let inputDump = document.createElement("input");
-      document.body.appendChild(inputDump);
-      inputDump.value = window.location.href;
-      inputDump.select();
-      document.execCommand("copy");
-      document.body.removeChild(inputDump);
-      this.snackbar = {
-        status: true,
-        text: "لینک کپی شد!",
-      };
+      navigator.clipboard.writeText(window.location.href).then(
+        () =>
+          (this.snackbar = {
+            status: true,
+            text: "لینک کپی شد!",
+          })
+      );
     },
     newCommentSubmit() {
       if (this.newComment.form && this.$refs.newComment.validate()) {
-        alert(1);
         this.newComment.values = { rating: "", text: "", name: "", email: "" };
         this.newComment.success = true;
         this.$refs.newComment.resetValidation();
@@ -800,20 +795,6 @@ export default {
       return this.$vuetify.theme.dark;
     },
   },
-  // async asyncData({ $axios, error }) {
-  //   try {
-  //     let { data } = await $axios.get("/learning");
-  //     return {
-  //       items: data.items,
-  //       comments: data.comments,
-  //     };
-  //   } catch (e) {
-  //     error({
-  //       statusCode: 503,
-  //       message: "reza",
-  //     });
-  //   }
-  // },
 };
 </script>
 

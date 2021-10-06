@@ -1,14 +1,7 @@
-<template>
-  <v-main>
-    <center>
-      <h1>course home</h1>
-    </center>
-  </v-main>
-</template>
-
 <script>
-export default {};
+export default {
+  middleware({redirect}){
+    redirect("/")
+  }
+}
 </script>
-
-<style>
-</style>

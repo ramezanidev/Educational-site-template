@@ -9,8 +9,9 @@
         <section
           style="display: flex; flex-wrap: wrap; justify-content: center"
         >
-          <template v-for="i in 6">
-            <v-hover v-slot="{ hover }" :key="i" style="transition: 200ms">
+        
+          <div v-for="i in 6" :key="i">
+            <v-hover v-slot="{ hover }" style="transition: 200ms">
               <v-card
                 class="mx-6 my-4 overflow-hidden"
                 max-width="300"
@@ -93,7 +94,7 @@
                 </v-card-actions>
               </v-card>
             </v-hover>
-          </template>
+          </div>
         </section>
       </section>
     </v-container>
